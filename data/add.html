@@ -13,15 +13,15 @@
     <input type="text" name="taskId" value="${task.taskId}" style="display: none;">
     <input type="text" name="day" value="${day.date}" style="display: none;">
     <div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 p-3 mb-2 bg-primary text-white">
             <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
             <input type="text" name="name" value="${task.name}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 p-3 mb-2 bg-primary text-white">
             <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
             <input type="text" name="description" value="${task.description}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
-        <select name="selected" class="form-select" aria-label="Default select example">
+        <select name="selected" class="form-select mb-3 p-3" aria-label="Default select example">
             <#list types as type>
             <#if type?counter == 1>
             <option selected value="${type.getName()}">${type.getName()}</option>
@@ -30,7 +30,7 @@
             </#if>
             </#list>
         </select>
-        <button type="submit" class="btn btn-success">Добавить</button>
+        <button type="submit" class="btn btn-success mb-3 p-3">Добавить</button>
     </div>
 </form>
 </body>

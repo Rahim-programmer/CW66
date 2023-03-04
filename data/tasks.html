@@ -24,9 +24,9 @@
     <#list tasks as task>
     <tr>
         <th scope="row"><div class="cube ${task.type.getColor()}"></div></th>
-        <td><a href="/task?date=${date}&taskId=${task.taskId}">${task.name}</a></td>
-        <td>${task.description}</td>
-        <td><a href="/task/delete?date=${date}&taskId=${task.taskId}"><button class="btn btn-outline-danger">Удалить задачу</button></a></td>
+        <td><a href="/task?date=${date}&taskId=${task.taskId}" class="p-3 mb-2 bg-white text-dark">${task.name}</a></td>
+        <td class="p-3 mb-2 bg-white text-dark">${task.description}</td>
+        <td><a href="/task/delete?date=${date}&taskId=${task.taskId}"><button class="btn btn-outline-danger p-3 mb-2 bg-white text-dark">Удалить задачу</button></a></td>
     </tr>
 </#list>
 </tbody>

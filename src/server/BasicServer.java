@@ -64,7 +64,6 @@ public abstract class BasicServer {
         registerFileHandler(".jpg", ContentType.IMAGE_JPEG);
         registerFileHandler(".png", ContentType.IMAGE_PNG);
         registerFileHandler(".svg", ContentType.IMAGE_SVG);
-
     }
 
     protected final void registerGet(String route, RouteHandler handler) {

@@ -1,13 +1,11 @@
 package controlwork;
 
 public enum TypeOfTask {
-
     ORDINARY("обычная задача", "blue"),
     URGENT("срочное дело", "red"),
     WORK("работа", "green"),
     SHOPPING("покупка", "black"),
     OTHER("прочее", "brown");
-
 
     private String name;
     private String color;
