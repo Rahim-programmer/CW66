@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить новую задачу</title>
+
+    <link href="/bootStrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/headers.css" rel="stylesheet">
+</head>
+<body>
+<form action="/task/add" method="post">
+    <input type="text" name="taskId" value="${task.taskId}" style="display: none;">
+    <input type="text" name="day" value="${day.date}" style="display: none;">
+    <div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+            <input type="text" name="name" value="${task.name}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+            <input type="text" name="description" value="${task.description}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <select name="selected" class="form-select" aria-label="Default select example">
+            <#list types as type>
+            <#if type?counter == 1>
+            <option selected value="${type.getName()}">${type.getName()}</option>
+            <#else>
+            <option value="${type.getName()}">${type.getName()}</option>
+            </#if>
+            </#list>
+        </select>
+        <button type="submit" class="btn btn-success">Добавить</button>
+    </div>
+</form>
+</body>
+</html>

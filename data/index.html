@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Календарь</title>
+    <link href="css/indexCss.css" rel="stylesheet">
+</head>
+<body>
+<h1 class="plan">Планировщик задач на ${currentMonth}</h1>
+<div class="nameofweek">
+    <div>
+        <p>Понедельник</p>
+    </div>
+    <div>
+        <p>Вторник</p>
+    </div>
+    <div>
+        <p>Среда</p>
+    </div>
+    <div>
+        <p>Четверг</p>
+    </div>
+    <div>
+        <p>Пятница</p>
+    </div>
+    <div>
+        <p>Суббота</p>
+    </div>
+    <div>
+        <p>Воскресенье</p>
+    </div>
+    <#assign y=daysInMonth>
+    <#if (dayOfWeek > 1)>
+    <#list 1..dayOfWeek - 1 as x>
+    <div class="days">
+    </div>
+    </#list>
+    </#if>
+<#list days as day>
+    <#if currentDay == day.date.getDayOfMonth()>
+    <div class="day current">
+        <p>${day.date.getDayOfMonth()}</p>
+        <#if day.tasks??>
+        <div class="tasks"><#list day.tasks as task>
+            <div class="cube ${task.type.getColor()}"></div>
+        </#list></div>
+        </#if>
+        <a href="/tasks?date=${day.date}" class="stretched-link"></a>
+    </div>
+    <#else>
+    <div class="day">
+        <p>${day.date.getDayOfMonth()}</p>
+        <#if day.tasks??>
+        <div class="tasks"><#list day.tasks as task>
+            <div class="cube ${task.type.getColor()}"></div>
+        </#list></div>
+
+        </#if>
+        <a href="/tasks?date=${day.date}" class="stretched-link"></a>
+    </div>
+</#if>
+</#list>
+</div>
+
+<script src="/bootStrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

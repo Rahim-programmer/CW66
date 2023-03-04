@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задачи</title>
+    <link href="/bootStrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/headers.css" rel="stylesheet">
+</head>
+<body>
+<button class="btn btn-outline-secondary"><h3><a href="/">Назад к календарю</a></h3></button>
+<h1>Задачи на ${nameOfDate}</h1>
+<#if tasks?? && (tasks?size > 0)>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Тип</th>
+        <th scope="col">Название</th>
+        <th scope="col">Описание</th>
+        <th scope="col">Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    <#list tasks as task>
+    <tr>
+        <th scope="row"><div class="cube ${task.type.getColor()}"></div></th>
+        <td><a href="/task?date=${date}&taskId=${task.taskId}">${task.name}</a></td>
+        <td>${task.description}</td>
+        <td><a href="/task/delete?date=${date}&taskId=${task.taskId}"><button class="btn btn-outline-danger">Удалить задачу</button></a></td>
+    </tr>
+</#list>
+</tbody>
+</table>
+<#else>
+<div></div>
+</#if>
+<button class="btn btn-outline-info"><h4><a href="/task/add?date=${date}">Добавить задачу</a></h4></button>
+</body>
+</html>
